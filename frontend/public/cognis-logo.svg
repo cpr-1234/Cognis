@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" fill="none">
+  <defs>
+    <linearGradient id="brainGrad" x1="100" y1="10" x2="100" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Brain outline: stylised symmetrical top-view brain using paths -->
+  <!-- Left hemisphere -->
+  <g stroke="url(#brainGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Outer left lobe -->
+    <path d="M100 30 C80 15, 45 20, 30 45 C15 68, 18 100, 25 120 C32 140, 50 158, 70 162 C85 165, 98 160, 100 158"/>
+    <!-- Left upper folds -->
+    <path d="M100 30 C90 38, 72 32, 65 48 C58 64, 62 80, 70 88"/>
+    <path d="M70 88 C60 95, 48 90, 42 105 C36 120, 44 138, 56 145"/>
+    <path d="M65 48 C55 55, 40 52, 35 68"/>
+    <path d="M42 105 C36 112, 30 118, 32 132"/>
+    <path d="M56 145 C65 155, 80 158, 92 155"/>
+
+    <!-- Right hemisphere -->
+    <!-- Outer right lobe -->
+    <path d="M100 30 C120 15, 155 20, 170 45 C185 68, 182 100, 175 120 C168 140, 150 158, 130 162 C115 165, 102 160, 100 158"/>
+    <!-- Right upper folds -->
+    <path d="M100 30 C110 38, 128 32, 135 48 C142 64, 138 80, 130 88"/>
+    <path d="M130 88 C140 95, 152 90, 158 105 C164 120, 156 138, 144 145"/>
+    <path d="M135 48 C145 55, 160 52, 165 68"/>
+    <path d="M158 105 C164 112, 170 118, 168 132"/>
+    <path d="M144 145 C135 155, 120 158, 108 155"/>
+
+    <!-- Centre divide line -->
+    <path d="M100 32 C98 60, 98 90, 100 115 C102 135, 100 150, 100 158" stroke-width="4" opacity="0.5"/>
+
+    <!-- Extra inner folds left -->
+    <path d="M75 70 C68 80, 65 95, 72 108"/>
+    <path d="M55 82 C50 94, 52 110, 60 120"/>
+    <!-- Extra inner folds right -->
+    <path d="M125 70 C132 80, 135 95, 128 108"/>
+    <path d="M145 82 C150 94, 148 110, 140 120"/>
+  </g>
+
+  <!-- COGNIS text -->
+  <text
+    x="100"
+    y="198"
+    text-anchor="middle"
+    font-family="'Inter', 'Segoe UI', Arial, sans-serif"
+    font-size="28"
+    font-weight="800"
+    letter-spacing="6"
+    fill="url(#brainGrad)"
+  >COGNIS</text>
+</svg>
