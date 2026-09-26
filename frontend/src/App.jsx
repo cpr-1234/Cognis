@@ -1,122 +1,283 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState("roles");
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app">
 
-      <div className="ticks"></div>
+      <header className="header">
+        <div className="brand">
+          <div className="brand-icon">🧠</div>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          <div>
+            <h1>COGNILAB</h1>
+            <p>Browser-Based Cognitive Research</p>
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </header>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {page === "roles" && (
+        <RoleSelection setPage={setPage} />
+      )}
+
+      {page === "researcher" && (
+        <ResearcherLogin setPage={setPage} />
+      )}
+
+      {page === "participant" && (
+        <ParticipantLogin setPage={setPage} />
+      )}
+
+    </div>
+  );
 }
 
-export default App
+
+/* =========================
+   ROLE SELECTION
+========================= */
+
+function RoleSelection({ setPage }) {
+  return (
+    <main className="main">
+
+      <section className="welcome">
+
+        <div className="badge">
+          RESEARCH PLATFORM
+        </div>
+
+        <h2>Welcome</h2>
+
+        <p className="question">
+          How will you participate?
+        </p>
+
+        <p className="description">
+          Choose how you'd like to access the CogniLab platform.
+        </p>
+
+      </section>
+
+
+      <section className="role-container">
+
+        <button
+          className="role-card"
+          onClick={() => setPage("researcher")}
+        >
+          <div className="role-icon researcher-icon">
+            🔬
+          </div>
+
+          <div className="role-info">
+            <h3>Researcher</h3>
+
+            <p>
+              Create, manage and analyze
+              cognitive experiments.
+            </p>
+
+            <span>Continue →</span>
+          </div>
+        </button>
+
+
+        <button
+          className="role-card"
+          onClick={() => setPage("participant")}
+        >
+          <div className="role-icon participant-icon">
+            👤
+          </div>
+
+          <div className="role-info">
+            <h3>Participant</h3>
+
+            <p>
+              Take part in a research
+              experiment using an experiment code.
+            </p>
+
+            <span>Continue →</span>
+          </div>
+        </button>
+
+      </section>
+
+
+      <div className="trust">
+        <span>🔒 Secure</span>
+        <span>👁 Anonymous</span>
+        <span>⚡ Precise</span>
+      </div>
+
+    </main>
+  );
+}
+
+
+/* =========================
+   RESEARCHER LOGIN
+========================= */
+
+function ResearcherLogin({ setPage }) {
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    console.log("Researcher:", email);
+    console.log("Password:", password);
+
+    alert("Demo login successful!");
+  }
+
+  return (
+    <main className="login-page">
+
+      <button
+        className="back-button"
+        onClick={() => setPage("roles")}
+      >
+        ← Back
+      </button>
+
+
+      <div className="login-card">
+
+        <div className="login-icon">
+          🔬
+        </div>
+
+        <h2>Researcher Login</h2>
+
+        <p>
+          Sign in to create and manage experiments.
+        </p>
+
+
+        <form onSubmit={handleSubmit}>
+
+          <label>Email</label>
+
+          <input
+            name="email"
+            type="email"
+            placeholder="researcher@example.com"
+            required
+          />
+
+
+          <label>Password</label>
+
+          <input
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+            required
+          />
+
+
+          <button
+            type="submit"
+            className="primary-button"
+          >
+            Sign In
+          </button>
+
+        </form>
+
+
+        <p className="account-text">
+          Don't have an account?
+          <span> Create one</span>
+        </p>
+
+      </div>
+
+    </main>
+  );
+}
+
+
+/* =========================
+   PARTICIPANT
+========================= */
+
+function ParticipantLogin({ setPage }) {
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const code = event.target.code.value;
+
+    console.log("Experiment code:", code);
+
+    alert(`Experiment ${code} found!`);
+  }
+
+  return (
+    <main className="login-page">
+
+      <button
+        className="back-button"
+        onClick={() => setPage("roles")}
+      >
+        ← Back
+      </button>
+
+
+      <div className="login-card">
+
+        <div className="login-icon">
+          👤
+        </div>
+
+        <h2>Join Experiment</h2>
+
+        <p>
+          Enter the experiment code provided
+          by your researcher.
+        </p>
+
+
+        <form onSubmit={handleSubmit}>
+
+          <label>Experiment Code</label>
+
+          <input
+            name="code"
+            type="text"
+            placeholder="e.g. COG-4821"
+            required
+          />
+
+
+          <button
+            type="submit"
+            className="primary-button"
+          >
+            Join Experiment
+          </button>
+
+        </form>
+
+
+        <div className="anonymous-note">
+          🔒 No account required.
+          Your participation remains anonymous.
+        </div>
+
+      </div>
+
+    </main>
+  );
+}
+
+
+export default App;
