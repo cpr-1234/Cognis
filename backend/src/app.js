@@ -30,8 +30,18 @@ app.use('/api', studyRoutes);
 app.use('/api', experimentRoutes);
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'Cognis Backend API', timestamp: new Date().toISOString() });
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Cognis backend is running",
+  });
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "Cognis backend is healthy",
+  });
 });
 
 module.exports = app;

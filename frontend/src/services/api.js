@@ -1,5 +1,6 @@
-const AUTH_API = '/api/auth';
-const STUDY_API = '/api';
+const API_BASE = import.meta.env.VITE_API_URL || '';
+const AUTH_API = `${API_BASE}/api/auth`;
+const STUDY_API = `${API_BASE}/api`;
 
 // Helper to make API requests with Authorization header if token exists
 const request = async (baseUrl, endpoint, options = {}) => {
